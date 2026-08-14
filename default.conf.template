@@ -3,6 +3,11 @@ upstream target {
   keepalive 16;
 }
 
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  ''      close;
+}
+
 server {
   listen 80;
   listen [::]:80;
